@@ -220,6 +220,26 @@
                 <artifactId>commons-logging</artifactId>
                 <version>1.2</version>
             </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>1.8.0</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.activation</groupId>
+                <artifactId>activation</artifactId>
+                <version>1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr-runtime</artifactId>
+                <version>3.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.scala-lang.modules</groupId>
+                <artifactId>scala-xml_${scala.binary.version}</artifactId>
+                <version>1.0.4</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -416,6 +436,16 @@
             <groupId>org.apache.sentry</groupId>
             <artifactId>sentry-binding-hive</artifactId>
             <version>1.8.0</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>datanucleus-rdbms</artifactId>
+                    <groupId>org.datanucleus</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>hadoop-common</artifactId>
+                    <groupId>org.apache.hadoop</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.github.benfradet</groupId>
