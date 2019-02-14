@@ -19,6 +19,7 @@
         <scala.binary.version>2.11</scala.binary.version>
         <spark.version>2.3.1</spark.version>
         <spark.testing-base>2.3.0</spark.testing-base>
+        <jetty.version>9.3.20.v20170531</jetty.version>
     </properties>
     <dependencyManagement>
         <!-- import the dependency management from spark parent pom -->
@@ -240,6 +241,47 @@
                 <artifactId>scala-xml_${scala.binary.version}</artifactId>
                 <version>1.0.4</version>
             </dependency>
+            <dependency>
+                <groupId>org.json4s</groupId>
+                <artifactId>json4s-native_${scala.binary.version}</artifactId>
+                <version>3.2.11</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <scope>compile</scope>
+                <version>14.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-servlet</artifactId>
+                <scope>compile</scope>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-security</artifactId>
+                <scope>compile</scope>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-server</artifactId>
+                <scope>compile</scope>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-http</artifactId>
+                <scope>compile</scope>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-util</artifactId>
+                <scope>compile</scope>
+                <version>${jetty.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -429,6 +471,10 @@
         <dependency>
             <groupId>org.json4s</groupId>
             <artifactId>json4s-jackson_${scala.binary.version}</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.json4s</groupId>
+            <artifactId>json4s-native_${scala.binary.version}</artifactId>
         </dependency>
 
         <!-- VIA -->
