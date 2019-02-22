@@ -160,11 +160,6 @@
                 <version>5.1.38</version>
             </dependency>
             <dependency>
-                <groupId>org.scalatest</groupId>
-                <artifactId>scalatest_${scala.binary.version}</artifactId>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>com.holdenkarau</groupId>
                 <artifactId>spark-testing-base_${scala.binary.version}</artifactId>
                 <version>${spark.testing-base}_0.9.0</version>
