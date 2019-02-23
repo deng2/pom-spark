@@ -18,6 +18,10 @@
         <scala.version>2.11.8</scala.version>
         <scala.binary.version>2.11</scala.binary.version>
         <spark.version>2.1.1</spark.version>
+        <spark.testing-base>2.3.0</spark.testing-base>
+        <jetty.version>9.2.16.v20160414</jetty.version>
+        <paranamer.version>2.8</paranamer.version>
+        <antlr.version>3.4</antlr.version>
     </properties>
     <dependencyManagement>
         <!-- import the dependency management from spark parent pom -->
@@ -28,6 +32,42 @@
                 <version>${spark.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <scope>compile</scope>
+                <version>14.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-servlet</artifactId>
+                <scope>compile</scope>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-security</artifactId>
+                <scope>compile</scope>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-server</artifactId>
+                <scope>compile</scope>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-http</artifactId>
+                <scope>compile</scope>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-util</artifactId>
+                <scope>compile</scope>
+                <version>${jetty.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.spark</groupId>
@@ -99,16 +139,8 @@
                 <version>${spark.version}</version>
                 <exclusions>
                     <exclusion>
-                        <groupId>org.apache.kafka</groupId>
-                        <artifactId>kafka_${scala.binary.version}</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.spark</groupId>
-                        <artifactId>spark-tags_${scala.binary.version}</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.spark-project.spark</groupId>
-                        <artifactId>unused</artifactId>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
@@ -164,6 +196,120 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>5.1.38</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.thoughtworks.paranamer</groupId>
+                <artifactId>paranamer</artifactId>
+                <version>${paranamer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr-runtime</artifactId>
+                <version>${antlr.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>3.18.1-GA</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>1.8.3</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-math</artifactId>
+                <version>2.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.scala-lang.modules</groupId>
+                <artifactId>scala-xml_${scala.binary.version}</artifactId>
+                <version>1.0.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.json4s</groupId>
+                <artifactId>json4s-native_${scala.binary.version}</artifactId>
+                <version>3.2.11</version>
+            </dependency>
+
+            <!-- VIA -->
+            <dependency>
+                <groupId>org.apache.sentry</groupId>
+                <artifactId>sentry-binding-hive</artifactId>
+                <version>1.8.0</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>datanucleus-rdbms</artifactId>
+                        <groupId>org.datanucleus</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-common</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.github.benfradet</groupId>
+                <artifactId>spark-kafka-0-10-writer_${scala.binary.version}</artifactId>
+                <version>0.2.0</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.vividsolutions</groupId>
+                <artifactId>jts</artifactId>
+                <version>1.13</version>
+            </dependency>
+            <dependency>
+                <groupId>au.com.bytecode</groupId>
+                <artifactId>opencsv</artifactId>
+                <version>2.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.woodstox</groupId>
+                <artifactId>stax2-api</artifactId>
+                <version>3.1.4</version>
+            </dependency>
+            <!--test -->
+            <dependency>
+                <groupId>org.scalatest</groupId>
+                <artifactId>scalatest_${scala.binary.version}</artifactId>
+                <version>2.2.6</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.holdenkarau</groupId>
+                <artifactId>spark-testing-base_${scala.binary.version}</artifactId>
+                <version>${spark.version}_0.7.2</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.pegdown</groupId>
+                <artifactId>pegdown</artifactId>
+                <version>1.2.1</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -252,6 +398,7 @@
         <dependency>
             <groupId>org.spark-project.hive</groupId>
             <artifactId>hive-exec</artifactId>
+            <!--
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -270,6 +417,7 @@
                     <groupId>org.apache.spark</groupId>
                 </exclusion>
             </exclusions>
+            -->
         </dependency>
         <dependency>
             <groupId>org.spark-project.hive</groupId>
@@ -282,6 +430,7 @@
         <dependency>
             <groupId>org.spark-project.hive</groupId>
             <artifactId>hive-serde</artifactId>
+            <!--
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -292,6 +441,7 @@
                     <artifactId>commons-logging-api</artifactId>
                 </exclusion>
             </exclusions>
+            -->
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -308,7 +458,6 @@
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
-            <version>1.2</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
@@ -319,87 +468,35 @@
             <artifactId>jersey-container-servlet</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlet</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-security</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-http</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-util</artifactId>
-            <scope>compile</scope>
+            <groupId>org.json4s</groupId>
+            <artifactId>json4s-jackson_${scala.binary.version}</artifactId>
         </dependency>
         <dependency>
             <groupId>org.json4s</groupId>
-            <artifactId>json4s-jackson_${scala.binary.version}</artifactId>
+            <artifactId>json4s-native_${scala.binary.version}</artifactId>
         </dependency>
 
         <!-- VIA -->
         <dependency>
             <groupId>org.apache.sentry</groupId>
             <artifactId>sentry-binding-hive</artifactId>
-            <version>1.8.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.benfradet</groupId>
             <artifactId>spark-kafka-0-10-writer_${scala.binary.version}</artifactId>
-            <version>0.2.0</version>
         </dependency>
         <dependency>
             <groupId>com.vividsolutions</groupId>
             <artifactId>jts</artifactId>
-            <version>1.13</version>
         </dependency>
         <dependency>
             <groupId>au.com.bytecode</groupId>
             <artifactId>opencsv</artifactId>
-            <version>2.4</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.woodstox</groupId>
             <artifactId>stax2-api</artifactId>
-            <version>3.1.4</version>
         </dependency>
-
-        <!--test -->
-        <!--
-        <dependency>
-            <groupId>org.scalatest</groupId>
-            <artifactId>scalatest_${scala.binary.version}</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.holdenkarau</groupId>
-            <artifactId>spark-testing-base_${scala.binary.version}</artifactId>
-            <version>${spark.version}_0.7.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.pegdown</groupId>
-            <artifactId>pegdown</artifactId>
-            <version>1.2.1</version>
-            <scope>test</scope>
-        </dependency>
-        -->
     </dependencies>
     <build>
         <plugins>
