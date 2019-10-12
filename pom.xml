@@ -17,6 +17,7 @@
         <!-- properties -->
         <scala.version>2.11.8</scala.version>
         <scala.binary.version>2.11</scala.binary.version>
+        <maven.scala.version>${scala.binary.version}</maven.scala.version>
         <spark.version>2.3.1</spark.version>
         <spark.testing-base>2.3.0</spark.testing-base>
         <jetty.version>9.3.20.v20170531</jetty.version>
