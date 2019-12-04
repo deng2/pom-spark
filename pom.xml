@@ -21,7 +21,7 @@
         <spark.version>2.3.1</spark.version>
         <hadoop.version>2.7.3</hadoop.version>
         <spark.testing-base>2.3.0</spark.testing-base>
-        <jetty.version>9.3.20.v20170531</jetty.version>
+        <jetty.version>9.4.24.v20191120</jetty.version>
     </properties>
     <dependencyManagement>
         <!-- import the dependency management from spark parent pom -->
