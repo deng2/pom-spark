@@ -17,10 +17,16 @@
 
     <distributionManagement>
         <repository>
-            <id>github</id>
+            <id>github_deng2_pom_spark</id>
             <url>https://maven.pkg.github.com/deng2/pom-spark</url>
         </repository>
     </distributionManagement>
+    <repositories>
+        <repository>
+            <id>github_deng2_pom_spark</id>
+            <url>https://maven.pkg.github.com/deng2/pom-spark</url>
+        </repository>
+    </repositories>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
